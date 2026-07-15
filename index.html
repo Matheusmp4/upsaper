@@ -156,6 +156,38 @@
   }
   .card:hover .card-wm{color:#fff;opacity:.09}
 
+  /* portfólio */
+  .galeria{background:var(--creme)}
+  .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .gal-item{
+    position:relative;border-radius:4px;overflow:hidden;cursor:pointer;
+    aspect-ratio:3/4;background:#000;box-shadow:0 18px 40px rgba(20,20,20,.12);
+    transition:transform .35s ease,box-shadow .35s ease;
+  }
+  .gal-item:hover{transform:translateY(-6px);box-shadow:0 26px 54px rgba(154,0,24,.22)}
+  .gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+  .gal-item:hover img{transform:scale(1.05)}
+  .gal-cap{
+    position:absolute;left:0;right:0;bottom:0;padding:20px 18px 16px;
+    background:linear-gradient(0deg,rgba(0,0,0,.78),rgba(0,0,0,0));
+    color:#fff;font-size:.82rem;font-weight:600;letter-spacing:.03em;
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+  }
+  .gal-cap svg{width:16px;height:16px;flex-shrink:0;opacity:.85}
+  .lightbox{
+    position:fixed;inset:0;z-index:200;background:rgba(10,0,2,.92);
+    display:flex;align-items:center;justify-content:center;padding:40px;
+    opacity:0;pointer-events:none;transition:opacity .25s ease;
+  }
+  .lightbox.open{opacity:1;pointer-events:auto}
+  .lightbox img{max-width:92vw;max-height:88vh;border-radius:4px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .lightbox-close{
+    position:absolute;top:26px;right:30px;width:42px;height:42px;border-radius:50%;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);
+    color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;
+  }
+  .lightbox-close svg{width:18px;height:18px}
+
   /* cta final */
   .final{background:var(--vinho);text-align:center;position:relative;overflow:hidden}
   .final::before{
@@ -209,6 +241,7 @@
     .cards{grid-template-columns:1fr 1fr}
     header{min-height:auto;padding:100px 0 56px}
     h1{font-size:clamp(2rem,7vw,3rem)}
+    .gal-grid{grid-template-columns:1fr 1fr}
   }
   @media(max-width:640px){
     .wrap{padding:0 20px}
@@ -224,6 +257,9 @@
     section{padding:56px 0}
     .final .btn-solid{width:100%;justify-content:center}
     .fab{width:50px;height:50px;right:16px;bottom:16px}
+    .gal-grid{grid-template-columns:1fr;gap:16px}
+    .lightbox{padding:20px}
+    .lightbox-close{top:16px;right:16px}
   }
   @media(max-width:380px){
     .badges{gap:8px}
@@ -275,7 +311,7 @@
       <span class="logo-badge"><img src="731158098_18103303403034771_800567584921397080_n-removebg-preview.png" alt="Upsapper"></span>
       <span>Upsapper</span>
     </a>
-    <a href="https://wa.me/5521981181259?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="nav-whats">
+    <a href="https://wa.me/5521981181259?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="nav-whats">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5C10.1 9 9.5 7.6 9.3 7c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
       <span>WhatsApp</span>
     </a>
@@ -298,7 +334,7 @@
         <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="7" width="15" height="11" rx="1"/><path d="M16 10h3l4 4v4h-7z"/><circle cx="6" cy="20" r="2"/><circle cx="18.5" cy="20" r="2"/></svg>Adesivagem de carros</span>
       </div>
       <div class="cta">
-        <a href="https://wa.me/5521981181259?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn btn-solid">
+        <a href="https://wa.me/5521981181259?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn btn-solid">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5C10.1 9 9.5 7.6 9.3 7c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
           Pedir orçamento
         </a>
@@ -357,6 +393,42 @@
   </div>
 </section>
 
+<section class="galeria" id="trabalhos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-tag">Nosso Trabalho</span>
+      <h2>Material com acabamento de agência.</h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item rv" data-full="catalogo1.jpg">
+        <img src="catalogo1.jpg" alt="Catálogo de produtos Upsaper" loading="lazy">
+        <div class="gal-cap">Catálogo de Produtos
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+        </div>
+      </div>
+      <div class="gal-item rv" data-full="catalogo2.jpg">
+        <img src="catalogo2.jpg" alt="Identidade visual e fachada Upsaper" loading="lazy">
+        <div class="gal-cap">Comunicação Visual
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+        </div>
+      </div>
+      <div class="gal-item rv" data-full="catalogo3.jpg">
+        <img src="catalogo3.jpg" alt="Displays de PDV Upsaper" loading="lazy">
+        <div class="gal-cap">Displays de PDV
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="lightboxClose">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg>
+  </div>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
 <section class="final">
   <svg class="wm-car" viewBox="0 0 240 100"><use href="#ic-car-wm"/></svg>
   <svg class="wm-crop final-tl" viewBox="0 0 26 26"><use href="#ic-crop"/></svg>
@@ -364,7 +436,7 @@
   <div class="wrap">
     <h2 class="rv">Fale agora e receba seu orçamento</h2>
     <p class="rv">Resposta rápida direto no seu WhatsApp, sem burocracia.</p>
-    <a href="https://wa.me/5521981181259?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn btn-solid rv">
+    <a href="https://wa.me/5521981181259?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn btn-solid rv">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5C10.1 9 9.5 7.6 9.3 7c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
       Chamar no WhatsApp
     </a>
@@ -382,9 +454,9 @@
       <div class="f-links">
         <a href="https://wa.me/5521981181259" target="_blank" rel="noopener">WhatsApp</a>
         <a href="#servicos">Serviços</a>
-        <a href="https://instagram.com/upsapper" target="_blank" rel="noopener" class="f-insta">
+        <a href="https://instagram.com/upsaper" target="_blank" rel="noopener" class="f-insta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
-          @upsapper
+          @upsaper
         </a>
       </div>
     </div>
@@ -394,7 +466,7 @@
   </div>
 </footer>
 
-<a href="https://wa.me/5521981181259?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="fab" aria-label="WhatsApp">
+<a href="https://wa.me/5521981181259?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="fab" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5C10.1 9 9.5 7.6 9.3 7c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
 </a>
 
@@ -408,6 +480,20 @@
     el.style.transitionDelay = (i % 4) * 80 + 'ms';
     io.observe(el);
   });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  document.querySelectorAll('.gal-item').forEach(item => {
+    item.addEventListener('click', () => {
+      lightboxImg.src = item.dataset.full;
+      lightboxImg.alt = item.querySelector('img').alt;
+      lightbox.classList.add('open');
+    });
+  });
+  const closeLightbox = () => lightbox.classList.remove('open');
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 </script>
 </body>
 </html>
